@@ -1,0 +1,26 @@
+﻿@page "/"
+
+@inject IGuestData GuestData
+
+@if (data is not null)
+{
+    <ul>
+        @foreach (var item in data)
+        {
+            <li>@item.FirstName @item.LastName</li>
+        }
+
+    </ul>
+
+}
+
+@code {
+
+    private List<GuestModel> data;
+
+    protected override async Task OnInitializedAsync()
+    {
+        data = await GuestData.GetGuests();
+    }
+
+}
