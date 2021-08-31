@@ -13,13 +13,14 @@ namespace SimpleApi.Controllers
     [ApiController]
     public class GuestsController : ControllerBase
     {
+        //we dont have any database
         private static List<GuestModel> _guests = new List<GuestModel>()
         {
-            new GuestModel {Id = 1, FirstName = "Raul", LastName ="Jimenez"},
-            new GuestModel {Id = 2, FirstName = "Pilar", LastName ="Lera"},
-            new GuestModel {Id = 3, FirstName = "Gonzalo", LastName ="Jimenez"},
-            new GuestModel {Id = 4, FirstName = "Candela", LastName ="Jimenez"},
-            new GuestModel {Id = 5, FirstName = "Berta", LastName ="Jimenez"},
+            new GuestModel {Id = 1, FirstName = "Jose", LastName ="Garcia"},
+            new GuestModel {Id = 2, FirstName = "Pedro", LastName ="Gomez"},
+            new GuestModel {Id = 3, FirstName = "Ignacio", LastName ="Sanchez"},
+            new GuestModel {Id = 4, FirstName = "Joaquin", LastName ="Sabina"},
+            new GuestModel {Id = 5, FirstName = "Julio", LastName ="Iglesias"},
         };
 
         // GET: api/<GuessController>
