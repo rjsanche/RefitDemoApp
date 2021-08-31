@@ -1,5 +1,5 @@
 ﻿@page "/fetchdata"
-@inject HttpClient Http
+@using Refit
 
 <h1>Weather forecast</h1>
 
@@ -35,21 +35,12 @@ else
 }
 
 @code {
-    private WeatherForecast[] forecasts;
+    private List<WeatherModel> forecasts;
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+        var weatherData = RestService.For<IWeatherData>("https://localhost:44342");//without slash api beacuse WeatherController has attribute "[controller]"
+        forecasts = await weatherData.GetWeather();
     }
 
-    public class WeatherForecast
-    {
-        public DateTime Date { get; set; }
-
-        public int TemperatureC { get; set; }
-
-        public string Summary { get; set; }
-
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-    }
 }

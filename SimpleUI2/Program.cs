@@ -25,7 +25,7 @@ namespace SimpleUI2
 
             builder.Services.AddRefitClient<IGuestData>().ConfigureHttpClient(c =>
             {
-                c.BaseAddress = new System.Uri("https://localhost:44342/api");
+                c.BaseAddress = new System.Uri("https://localhost:44342/api");//slash api because GuestController has attribute "api/[controller]"
             }
             );
 
